@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'register/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>SISTEM TABUNGAN</h1>
+        <form action="{% url 'login:login' %}" method="post">
+        {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="username" class="text-box" autocomplete="off">
+            <input type="password" name="password" id="password" placeholder="password" class="text-box" autocomplete="off">
+            <input type="password" name="password" id="password" placeholder="confirm password" class="text-box" autocomplete="off">
+            <input type="submit" value="register" class="button">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../pictures/email-pattern.png);
+}
+
+.container {
+    width: 500px;
+    /* height: 518px; */
+    padding-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container > h1 {
+    text-align: center;
+    display: block;
+    margin-top: 30px;
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #696969;
+}
+
+.container > form > input.text-box {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 78px;
+    border-radius: 15px;
+    border: none;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    padding: 0 26px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.container > form > input.button {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    height: 78px;
+    background-color: #c4c4c4;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0;
+    cursor: pointer;
+    transition-duration: 200ms;
+    transition-delay: 200ms;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+    background-color: #999 !important;
+    transition-delay: 200ms;
+    transition-duration: 200ms;
+}
+
+
+input.text-box:focus {
+    background-color: #f9f9f9 !important;
+    outline: none;
+}
+
+.container form input.text-box {
+    margin: 30px auto 20px auto;
+}
+
+@media only screen and (max-width: 600px), (max-height: 600px) {
+    .container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    body {
+        background-color: #f8f8f8;
+        background-image: none;
+    }
+    
+    .container > h1 {
+        letter-spacing: 2px;
+        width: 86%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body > .container > form > input.text-box, body > .container > form > input.button {
+        width: 86%;
+    }
+}
+
+@media only screen and (max-height: 525px) {
+    .container {
+        height: 100%;
+    }
+}
