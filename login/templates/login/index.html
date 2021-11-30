@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>SISTEM TABUNGAN</h1>
-        <form action="#" method="post">
+        <form action="{% url 'login:login' %}" method="post">
         {% csrf_token %}
             <input type="text" name="username" id="username" placeholder="username" class="text-box" autocomplete="off">
             <input type="password" name="password" id="password" placeholder="password" class="text-box" autocomplete="off">
@@ -22,5 +22,6 @@
             </div>
         </form>
     </div>
+    {% if error_message %} <script>alert("{{ error_message }}")</script> {% endif %}
 </body>
 </html>

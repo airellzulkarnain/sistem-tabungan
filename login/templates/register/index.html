@@ -12,13 +12,14 @@
 <body>
     <div class="container">
         <h1>SISTEM TABUNGAN</h1>
-        <form action="{% url 'login:login' %}" method="post">
+        <form action="{% url 'login:registration' %}" method="post">
         {% csrf_token %}
             <input type="text" name="username" id="username" placeholder="username" class="text-box" autocomplete="off">
             <input type="password" name="password" id="password" placeholder="password" class="text-box" autocomplete="off">
-            <input type="password" name="password" id="password" placeholder="confirm password" class="text-box" autocomplete="off">
+            <input type="password" name="confirm_password" id="password-confirm" placeholder="confirm password" class="text-box" autocomplete="off">
             <input type="submit" value="register" class="button">
         </form>
     </div>
+    {% if error_message %}<script>alert("{{ error_message }}")</script>{% endif %}
 </body>
 </html>

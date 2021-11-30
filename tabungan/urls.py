@@ -4,6 +4,7 @@ from . import views
 app_name="tabungan"
 
 urlpatterns = [
-    path('', views.home, name='home'), 
+    path('<str:user>/tabungan/', views.home, name='home'), 
+    path('', views.redirect),
     
 ]
