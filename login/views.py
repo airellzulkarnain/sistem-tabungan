@@ -1,4 +1,3 @@
-from django.http.request import HttpRequest
 from django.http.response import Http404
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
@@ -31,11 +30,15 @@ def register(request):
         username = request.POST["username"]
         password = request.POST["password"]
         confirm_password = request.POST["confirm_password"]
-        if password == confirm_password and password != "":
+        if password == confirm_password and password != "" and not(" " in password) and not(" " in username) and username != None and password != None:
             user = User(username=username, password=password, last_login=timezone.now())
             user.save(force_insert=True)
+        elif " " in password or " " in username:
+            return render(request, 'register/index.html', {"error_message": "password and username cannot contain space. "})
         elif password != confirm_password:
             return render(request, 'register/index.html', {"error_message": "password did not match. "})
+        elif username == "" or password == "":
+            return render(request, 'register/index.html')
     except (KeyError):
         return render(request, 'register/index.html')
     except (IntegrityError):

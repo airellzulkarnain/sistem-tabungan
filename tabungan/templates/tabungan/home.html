@@ -5,9 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home Tabungan</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tabungan/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'tabungan/style.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome_free/css/all.min.css' %}">
 </head>
 <body>
-    <h1>Hai, {{ user }}</h1>
-    <a href="{% url 'login:logout' %}">logout</a>
+    <nav class="navbar">
+        <div class="container">
+                <img src="" alt=" ">
+                <h1>{{ user }}</h1>
+            <a href="{% url 'login:logout' %}" class="logout">sign out <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </nav>
+    <section class="tabungan">
+        <div class="container">
+            <h1>Welcome, {{user}}</h1>
+            <div class="content">
+                
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'tabungan/action.js' %}"></script>
 </body>
 </html>
