@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home Tabungan</title>
     {% load static %}
+    <!-- <link rel="icon"href="{% static 'favicon.ico' %}"> -->
     <link rel="stylesheet" href="{% static 'tabungan/reset.css' %}">
     <link rel="stylesheet" href="{% static 'tabungan/style.css' %}">
     <link rel="stylesheet" href="{% static 'fontawesome_free/css/all.min.css' %}">
@@ -13,19 +14,32 @@
 <body>
     <nav class="navbar">
         <div class="container">
-                <img src="" alt=" ">
-                <h1>{{ user }}</h1>
+            <img src="" alt=" ">
+            <h1>{{ user }}</h1>
+            <div class="stuck"><i class="far fa-plus-square"></i></div><a href="{% url 'tabungan:add' user %}" class="navigation">Buat Baru</a>
+            <div class="stuck stuck-2"><i class="fas fa-home"></i></div><a href="{% url 'tabungan:home' user %}" class="navigation stuck-2-text">Home Page</a>
             <a href="{% url 'login:logout' %}" class="logout">sign out <i class="fas fa-sign-out-alt"></i></a>
         </div>
     </nav>
-    <section class="tabungan">
-        <div class="container">
+    <section id="tabungan">
+        <div class="container clearfix">
             <h1>Welcome, {{user}}</h1>
-            <div class="content">
-                
-            </div>
+            {% for tabungan in tabungan.saving_set.all %}
+                <a href="#">
+                    <div class="content">
+                        <h2>{{ tabungan.name }}</h2>
+                        <p>creaated: <time>{{ tabungan.created_date }}</time></p>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
     </section>
+    <footer>
+        <p>&COPY; Copyright 2022 Airell Zulkarnain. All Right Reservered. </p>
+    </footer>
     <script src="{% static 'tabungan/action.js' %}"></script>
 </body>
 </html>
