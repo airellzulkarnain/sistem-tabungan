@@ -133,6 +133,7 @@ nav.navbar > div.container > img {
 
 section div.container {
     padding: 35px 35px 35px 135px;
+    position: relative;
 }
 
 section#add table {
@@ -230,10 +231,17 @@ section#tabungan > div.container > a > div.content > div.progress-bar {
 }
 
 section#tabungan > div.container > a > div.content > div.progress-bar > div.progress {
-    width: 70%;
+    width: 0;
     height: 100%;
     border-radius: 10px;
-    background: #555;
+    background-color: #555;
+    color: #f0f0f0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+
 }
 
 section#tabungan > div.container > a > div.content > h2 {
@@ -251,30 +259,138 @@ section#tabungan > div.container > a > div.content > p {
     margin-left: 2.8%;
 }
 
-footer {
+section#tabung > div.container > h1 {
+    margin-bottom: 6px;
+}
+
+section#tabung > div.container > p {
+    margin-left: 10px;
+    color: #555;
+}
+
+section#tabung > div.container > div.box {
+    border-radius: 16px;
+    width: calc(100% - 20px);
+    height: 400px;
+    margin: 18px 10px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+section#tabung > div.container > div.box > div.transaction {
+    width: 100%;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+section#tabung > div.container > p.info {
+    text-align: right;
+    margin-right: 10px;
+}
+
+section#tabung > div.container > hr {
+    color: #555;
+    width: calc(100% - 20px);
+    text-align: center;
+}
+
+section#tabung > div.container > div.box > div.transaction > table {
+    width: 100%;
+    color: #555;
+    counter-reset: id;
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr th:first-child, table tr td:first-child {
+    width: 28px;
+}
+
+section#tabung table tr td:nth-child(1), section#tabung table tr th:nth-child(1), section#tabung table tr td:nth-child(2), section#tabung table tr th:nth-child(2) {
+    border-right: 2px solid #fff;
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr th {
+    background-color: #bbb;
+    font-weight: bold;
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr td:first-child::before{
+    counter-increment: id;
+    content: counter(id);
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr th, table tr td {
+    text-align: left;
+    padding: 10px;
+}
+
+section#tabung > div.container > div.box > div.transaction > table tr:hover {
+    background-color: #f8f8f8;
+}
+
+section#tabung > div.container > a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+}
+
+section#tabung > div.container > a.link {
+    margin: 15px 75px;
+    color: #555;
+    right: calc(45px + 150px + 20px);
+    bottom: -34px;
+}
+
+section#tabung > div.container > a.button {
+    width: 150px;
+    height: 60px;
+    background-color: #555;
+    border-radius: 16px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    right: 45px;
+    bottom: -40px;
+}
+
+section#tabung > div.container > a.button:hover {
+    background-color: #ccc;
+    color: #555;
+}
+
+section#tabung > div.container > a.link:hover {
+    color: #aaa;
+}
+
+footer {
+    height: 100px;
 }
 
 footer > p {
     color:#555;
     font-size: 16px;
+    position: relative;
+    top: 50%;
     text-align: center;
     padding: 20px 35px 20px 135px;
     box-sizing: border-box;
 }
 
 @media only screen and (max-width: 1200px) {
-    section.tabungan > div.container > a > div.content {
+    section#tabungan > div.container > a > div.content {
         width: 48%;
         margin: 1.5% 1%;
     }
 }
 
 @media only screen and (max-width: 800px) {
-    section.tabungan > div.container > a > div.content {
+    section#tabungan > div.container > a > div.content {
         width: 48%;
         height: 200px;
         margin: 1.5% 1%;
@@ -282,7 +398,7 @@ footer > p {
 }
 
 @media only screen and (max-width: 750px) {
-    section.tabungan > div.container > a > div.content {
+    section#tabungan > div.container > a > div.content {
         width: 98%;
         height: 300px;
         margin: 1.5% 1%;
@@ -290,11 +406,13 @@ footer > p {
 }
 
 @media only screen and (max-width: 600px) {
-    section.tabungan > div.container > a > div.content {
+    section#tabungan > div.container > a > div.content {
         width: 98%;
         height: 250px;
         margin: 1.5% 1%;
     }
+
+
 }
 
 .clearfix::after {

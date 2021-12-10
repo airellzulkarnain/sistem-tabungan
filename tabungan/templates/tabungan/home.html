@@ -24,13 +24,19 @@
     <section id="tabungan">
         <div class="container clearfix">
             <h1>Welcome, {{user}}</h1>
+            {% load to_underscore %}
+            {% load percent_of %}
             {% for tabungan in tabungan.saving_set.all %}
-                <a href="#">
+                <a href="{% url 'tabungan:tabungan' user tabungan.name|to_underscore %}">
                     <div class="content">
                         <h2>{{ tabungan.name }}</h2>
-                        <p>creaated: <time>{{ tabungan.created_date }}</time></p>
+                        <p>created: <time>{{ tabungan.created_date }}</time></p>
                         <div class="progress-bar">
-                            <div class="progress"></div>
+                            <div class="progress" style="width: {{ tabungan.target|percent_of:tabungan.transaction_set.all }}%;">
+                                {% if tabungan.status == "sudah lunas." %}
+                                    LUNAS
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </a>

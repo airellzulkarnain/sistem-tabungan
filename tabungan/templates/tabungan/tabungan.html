@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home Tabungan</title>
+    {% load static %}
+    <!-- <link rel="icon"href="{% static 'favicon.ico' %}"> -->
+    <link rel="stylesheet" href="{% static 'tabungan/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'tabungan/style.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome_free/css/all.min.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <img src="" alt=" ">
+            <h1>{{ user }}</h1>
+            <div class="stuck"><i class="far fa-plus-square"></i></div><a href="{% url 'tabungan:add' user %}" class="navigation">Buat Baru</a>
+            <div class="stuck stuck-2"><i class="fas fa-home"></i></div><a href="{% url 'tabungan:home' user %}" class="navigation stuck-2-text">Home Page</a>
+            <a href="{% url 'login:logout' %}" class="logout">sign out <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </nav>
+    <section id="tabung">
+        <div class="container clearfix">
+            <h1>{{ nama_tabungan }}</h1>
+            <p>created: <time>{{ date }}</time></p>
+            <div class="box">
+                <div class="transaction">
+                    <table>
+                        <tr>
+                            <th>No. </th>
+                            <th>Payment Date</th>
+                            <th>Amount </th>
+                        </tr>
+                        {% for transaction in transactions.transaction_set.all %}
+                        <tr>
+                            <td></td>
+                            <td>{{ transaction.payment_date }}</td>
+                            <td>{{ transaction.amount }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <br>
+            <p>Total : </p>
+            <hr>
+            <p class="info">{{ total }}</p>
+            <p>Target : </p>
+            <hr>
+            <p class="info">{{transactions.target}}</p>
+            <p>remaining : </p>
+            <hr>
+            {% load substracted_by %}
+            <p class="info">{{ transactions.target|substracted_by:total }}</p>
+            <br>
+            <a href="{% url 'tabungan:home' user %}" class="link">back</a>
+            {% if transactions.target == total %}
+            <a href="javascript:void(0)" class="button">Pay</a>
+            {% else %}
+            <a href="{% url 'tabungan:pay' user nama_tabungan %}" class="button">Pay</a>
+            {% endif %}
+        </div>
+    </section>
+    <footer>
+        <p>&COPY; Copyright 2022 Airell Zulkarnain. All Right Reservered. </p>
+    </footer>
+    <script src="{% static 'tabungan/action.js' %}"></script>
+</body>
+</html>
