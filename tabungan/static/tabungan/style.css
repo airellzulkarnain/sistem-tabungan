@@ -3,6 +3,12 @@ body {
     background-color: #fff;
 }
 
+body nav.navbar-clicked {
+    width: 300px;
+}
+
+
+
 nav.navbar {
     overflow: hidden;
     position: fixed;
@@ -10,7 +16,7 @@ nav.navbar {
     width: 100px;
     background-color: #aaa;
     transition-duration: 400ms;
-    z-index: 2;
+    z-index: 4;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -33,7 +39,7 @@ nav.navbar {
 }
 body > div.overlay {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
@@ -41,11 +47,11 @@ body > div.overlay {
     background-color: rgba(0, 0, 0, 0.45);
 }
 
-body > div.appear {
+body div.appear {
     animation: appear 400ms forwards;
 }
 
-body > div.disappear {
+body div.disappear {
     animation: disappear 400ms forwards;
 }
 
@@ -227,6 +233,7 @@ section#tabungan > div.container > a > div.content > div.progress-bar {
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
+    z-index: 1;
 
 }
 
@@ -280,7 +287,7 @@ section#tabung > div.container > div.box {
 section#tabung > div.container > div.box > div.transaction {
     width: 100%;
     overflow-y: scroll;
-    height: 400px;
+    height: 100%;
 }
 
 section#tabung > div.container > p.info {
@@ -368,6 +375,24 @@ section#tabung > div.container > a.link:hover {
     color: #aaa;
 }
 
+section#tabungan div.container a div.withdrawal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: #000;
+    opacity: 0.5;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    z-index: 2;
+    line-height: 250px;
+    display: none;
+    transition-duration: 400ms;
+}
+
 footer {
     height: 100px;
 }
@@ -406,13 +431,88 @@ footer > p {
 }
 
 @media only screen and (max-width: 600px) {
+
+    nav.navbar div.container h1 {
+        display: block;
+        top: 26px;
+        left : 80px;
+    }
+
+    section#tabung > div.container > div.box {
+        border-radius: 16px;
+        width: calc(100% - 20px);
+        height: 360px;
+        margin: 18px 10px;
+        background-color: #ddd;
+        overflow: hidden;
+    }
+
+    section#add table {
+        width: calc(100% - 10px);
+    }
+
+    section#add table tr td {
+        font-size: 16px;
+    }
+
+    section#tabung > div.container > a.button {
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+    }
+
+    section#tabung > div.container > a.link {
+        left: 50%;
+        bottom: -116px;
+        margin: 0px;
+        width: 100px;
+        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    footer > p {
+        color: #555;
+        font-size: 16px;
+        position: relative;
+        top: 50%;
+        text-align: center;
+        box-sizing: border-box;
+        margin-top: 100px;
+    }
+
     section#tabungan > div.container > a > div.content {
         width: 98%;
         height: 250px;
         margin: 1.5% 1%;
     }
 
+    nav.navbar {
+        width: 100%;
+        height: 80px;
+    }
 
+    body nav.navbar-clicked {
+        width: 100%;
+        height: 316px;
+    }
+
+    nav.navbar > div.container img{
+        width: 60px;
+        height: 60px;
+    }
+
+    section div.container {
+        padding: 90px 10px 10px 10px;
+    }
+
+    body footer p {
+        padding: 14px;
+    }
+
+    section#tabung > div.container > a.button {
+        bottom : -50px;
+    }
 }
 
 .clearfix::after {

@@ -27,8 +27,9 @@
             {% load to_underscore %}
             {% load percent_of %}
             {% for tabungan in tabungan.saving_set.all %}
-                <a href="{% url 'tabungan:tabungan' user tabungan.name|to_underscore %}">
+                <a href="{% if tabungan.status == 'sudah lunas.' %}{% url 'tabungan:withdrawal' user tabungan.name|to_underscore %}{% else %}{% url 'tabungan:tabungan' user tabungan.name|to_underscore %}{% endif %}">
                     <div class="content">
+                        {% if tabungan.status == "sudah lunas." %}<div class="withdrawal">TARIK</div>{% endif %}
                         <h2>{{ tabungan.name }}</h2>
                         <p>created: <time>{{ tabungan.created_date }}</time></p>
                         <div class="progress-bar">

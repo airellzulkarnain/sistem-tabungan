@@ -15,6 +15,13 @@ def home(request, user):
         "tabungan": user, 
     })
 
+def withdrawal(request, user, nama_tabungan):
+    user = get_object_or_404(User, pk=request.session["username"])
+    tabungan = get_object_or_404(user.saving_set, name=nama_tabungan.replace('_', ' '))
+    tabungan.delete()
+    return HttpResponseRedirect(reverse('tabungan:home', args=(request.session["username"], )))
+
+
 def add(request, user):
     user = get_object_or_404(User, pk=request.session["username"])
     try:
