@@ -33,7 +33,7 @@
                         <h2>{{ tabungan.name }}</h2>
                         <p>created: <time>{{ tabungan.created_date }}</time></p>
                         <div class="progress-bar">
-                            <div class="progress" style="width: {{ tabungan.target|percent_of:tabungan.transaction_set.all }}%;">
+                            <div class="progress" style="width: {{ tabungan.target|percent_of:tabungan.transaction_set.all }}%;max-width: 100%;">
                                 {% if tabungan.status == "sudah lunas." %}
                                     LUNAS
                                 {% endif %}

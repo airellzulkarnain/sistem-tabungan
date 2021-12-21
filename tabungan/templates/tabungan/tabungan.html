@@ -56,7 +56,7 @@
             <p class="info">{{ transactions.target|substracted_by:total }}</p>
             <br>
             <a href="{% url 'tabungan:home' user %}" class="link">back</a>
-            {% if transactions.target == total %}
+            {% if transactions.target <= total %}
             <a href="javascript:void(0)" class="button">Pay</a>
             {% else %}
             <a href="{% url 'tabungan:pay' user nama_tabungan %}" class="button">Pay</a>

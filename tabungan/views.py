@@ -62,7 +62,7 @@ def pay(request, user, nama_tabungan):
     tabungan = get_object_or_404(user.saving_set, name=nama_tabungan.replace('_', ' '))
     if sum([transaction.amount for transaction in tabungan.transaction_set.all()]) < tabungan.target : 
         tabungan.transaction_set.create(saver_name=user, saving_name=tabungan, amount=tabungan.target/tabungan.jumlah_pembayaran, payment_date=timezone.now())
-    if sum([transaction.amount for transaction in tabungan.transaction_set.all()]) == tabungan.target : 
+    if sum([transaction.amount for transaction in tabungan.transaction_set.all()]) >= tabungan.target : 
         tabungan.status = "sudah lunas."
         tabungan.save()
     return HttpResponseRedirect(reverse('tabungan:tabungan', args=(user.username, tabungan.name)))
