@@ -25,7 +25,7 @@ def withdrawal(request, user, nama_tabungan):
 def add(request, user):
     user = get_object_or_404(User, pk=request.session["username"])
     try:
-        for test_el in ["name", "target", "noticeevery", "timespayment"]:
+        for test_el in ["name", "target", "timespayment"]:
             request.POST[test_el]
     except (KeyError):
         return render(request, 'tabungan/add.html', {"user" : request.session["username"]})
@@ -36,7 +36,6 @@ def add(request, user):
                 owned_by=user, 
                 target = request.POST["target"], 
                 created_date = timezone.now(), 
-                notice_every = request.POST["noticeevery"], 
                 jumlah_pembayaran = request.POST["timespayment"]
             )
         except (ValidationError, DataError): 
