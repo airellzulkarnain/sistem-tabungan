@@ -82,13 +82,8 @@ WSGI_APPLICATION = 'sistem_tabungan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.sqlite3', 
         'NAME' : 'db_sistem_tabungan', 
-        'USER' : 'adminTabungan', 
-        'PASSWORD' : 'Tabungan2021!', 
-        'HOST' : 'localhost', 
-        'PORT' : '3306', 
-    }
 }
 
 
