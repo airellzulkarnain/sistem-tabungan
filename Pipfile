@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 mysqlclient = "*"
 fontawesome-free = "==5.15.4"
+gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+python-decouple = "*"
 
 [dev-packages]
 
