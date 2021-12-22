@@ -11,6 +11,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import sys
+>>>>>>> 3bf77cd (first try deploying)
+>>>>>>> 653e9eb (first try deploying)
+>>>>>>> 11ea9b8 (first try deploying)
+>>>>>>> 2d06978 (first try deploying)
 import django_heroku
 import dj_database_url
 from decouple import config
