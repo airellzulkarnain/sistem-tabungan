@@ -67,4 +67,10 @@ def pay(request, user, nama_tabungan):
     return HttpResponseRedirect(reverse('tabungan:tabungan', args=(user.username, tabungan.name)))
 
 def redirect(request):
-    return HttpResponseRedirect(reverse('login:login'))
+    try: 
+        request.session["username"]
+    except: 
+        return HttpResponseRedirect(reverse('login:login'))
+    else: 
+        return HttpResponseRedirect(reverse('tabungan:home', args=(request.session["username"],)))
+

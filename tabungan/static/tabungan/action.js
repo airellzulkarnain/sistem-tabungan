@@ -47,11 +47,7 @@ for (const content of document.querySelectorAll("section#tabungan div.container 
         if(content.firstElementChild.classList.contains("withdrawal")) {
             content.firstElementChild.classList.remove("appear");
             content.firstElementChild.classList.add("disappear");
-            content.firstElementChild.onmouseout = () => {
-                setTimeout(() => {
-                    content.firstElementChild.style.display = "none";
-                }, 400);
-            }
+            content.firstElementChild.style.display = "none";
         }
     }
 }
