@@ -4,11 +4,14 @@ from django.core.exceptions import ValidationError
 from django.db import DataError
 from django.utils import timezone
 from django.urls import reverse
+from django.http import Http404
 from login.models import User
 from tabungan.models import Transaction
 
 # Create your views here.
 def home(request, user):
+    if user != request.session["username"]: 
+        raise Http404("Incorrect URL")
     user = get_object_or_404(User, pk=request.session["username"])
     return render(request, 'tabungan/home.html', {
         "user": request.session["username"], 
